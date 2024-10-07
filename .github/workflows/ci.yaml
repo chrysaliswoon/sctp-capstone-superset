@@ -7,7 +7,7 @@ on: [workflow_dispatch]
 
 env:            
   AWS_REGION: ap-southeast-1      
-  ECR_REPOSITORY: kh/0921/pipeline
+  ECR_REPOSITORY: ce6-capstone-group3-dev-ecr
 
 jobs:
   build:
