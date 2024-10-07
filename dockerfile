@@ -24,7 +24,7 @@ RUN superset db upgrade && superset init \
         --username admin \
         --firstname admin \
         --lastname admin \
-        --email admin@gmailcom \
+        --email admin@gmail.com \
         --password admin
 
 # Expose the port that superset runs on
