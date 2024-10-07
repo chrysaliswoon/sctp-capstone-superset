@@ -21,7 +21,8 @@
 # as a final step as a means to override "defaults" configured here
 #
 
-SECRET_KEY = "1Jb8XUh8YN8zA3W3AO81L+wsS7vHwvWmZDhhqLUC36gtngW5vIebXiqU"
+PREVIOUS_SECRET_KEY = "1Jb8XUh8YN8zA3W3AO81L+wsS7vHwvWmZDhhqLUC36gtngW5vIebXiqU"
+SECRET_KEY = "PBRzNMhTCBbhXrdZZIH7jOWSMBm95C0lDUYMxMe8fOWbWx1aExRERU5C"
 SQLALCHEMY_DATABASE_URI = 'sqlite:////data/superset/superset.db?check_same_thread=false'
 #SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:ce6Capstone@database-1.cnge2fzfx0rs.ap-southeast-1.rds.amazonaws.com/-'
 
