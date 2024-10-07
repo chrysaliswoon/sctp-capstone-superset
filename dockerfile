@@ -27,5 +27,5 @@ RUN superset db upgrade && superset init \
         --email admin@gmail.com \
         --password admin
 
-# Expose the port that superset runs on
+# Expose the port that superset run on
 EXPOSE 8088
