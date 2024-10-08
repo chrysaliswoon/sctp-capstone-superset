@@ -54,4 +54,3 @@ jobs:
           cluster: ce6-capstone-group3-cluster
           wait-for-service-stability: true
 
-
