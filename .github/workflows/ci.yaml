@@ -43,7 +43,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ecs-task-definition.json
-          container-name: sctp-cloud-infra
+          container-name: ce6-capstone-group3-dev-ecr
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
