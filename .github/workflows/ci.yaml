@@ -29,11 +29,6 @@ jobs:
 
       - name: Build, tag, and push image to Amazon ECR
         id: push-image
-        run: |
-          docker build --no-cache --target test .
-  
-      - name: Build, tag, and push image to Amazon ECR
-        id: push-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}

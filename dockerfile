@@ -19,13 +19,14 @@ RUN mkdir -p /data/superset/
 # Switch back to the superset user
 USER superset
 
-RUN superset db upgrade && superset init \
-    && superset fab create-admin \
-        --username admin \
-        --firstname admin \
-        --lastname admin \
-        --email admin@gmailcom \
-        --password admin
+RUN superset db upgrade && superset init 
+
+RUN superset fab create-admin \
+    --username admin \
+    --firstname admin \
+    --lastname admin \
+    --email admin@gmail.com \
+    --password admin
 
 # Expose the port that superset runs on
 EXPOSE 8088
