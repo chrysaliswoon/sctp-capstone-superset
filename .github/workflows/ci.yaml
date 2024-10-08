@@ -1,13 +1,13 @@
 name: ci
 
-on: [workflow_dispatch]
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
 
-env:            
-  AWS_REGION: ap-southeast-1      
-  ECR_REPOSITORY: kh/0921/pipeline
+env:
+  AWS_REGION: ap-southeast-1
+  ECR_REPOSITORY: ce6-capstone-group3-dev-ecr
 
 jobs:
   build:
@@ -22,18 +22,16 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
-  
+
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Build, tag, and push image to Amazon ECR
-        id: push-image
+        id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-          
