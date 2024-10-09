@@ -1,13 +1,15 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - main
-
-env:
-  AWS_REGION: ap-southeast-1
-  ECR_REPOSITORY: ce6-capstone-group3-dev-ecr
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: 'Select deployment target'
+        required: true
+        default: 'dev'
+        options:
+          - dev
+          - prod
 
 jobs:
   build:
@@ -32,7 +34,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ce6-capstone-group3-dev-ecr
-          IMAGE_TAG: 01 #${{ github.sha }}
+          IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
@@ -42,8 +44,8 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ecs-task-definition.json
-          container-name: dev
+          task-definition: ecs-${{ inputs.deployment_target }}-task-definition.json
+          container-name: ${{ inputs.deployment_target }}
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
@@ -51,6 +53,6 @@ jobs:
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ce6-capstone-group3-svc
-          cluster: ce6-capstone-group3-dev-ecs
+          cluster: ce6-capstone-group3-${{ inputs.deployment_target }}-ecs
           wait-for-service-stability: true
 
