@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/ce6-capstone-group3:7",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/ce6-capstone-group3-service:2",
     "containerDefinitions": [
         {
             "name": "dev",
-            "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-group3/superset:01",
+            "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-capstone-group3-dev-ecr:latest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "ce6-group3-superset",
+                    "name": "ce6-capstone-group3-superset",
                     "containerPort": 8088,
                     "hostPort": 8088,
                     "protocol": "tcp",
@@ -27,7 +27,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/ce6-capstone-group3",
+                    "awslogs-group": "/ecs/ce6-capstone-group3-superset",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -39,10 +39,10 @@
         }
     ],
     "family": "ce6-capstone-group3",
-    "taskRoleArn": "arn:aws:iam::255945442255:role/kh-service-20240901065557343400000002",
-    "executionRoleArn": "arn:aws:iam::255945442255:role/ecsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::255945442255:role/ce6-capstone-group3-service-20241008133420421100000004",
+    "executionRoleArn": "arn:aws:iam::255945442255:role/ce6-capstone-group3-service-20241008133420421300000006",
     "networkMode": "awsvpc",
-    "revision": 7,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -95,7 +95,7 @@
         "FARGATE"
     ],
     "cpu": "1024",
-    "memory": "3072",
+    "memory": "2048",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
