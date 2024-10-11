@@ -36,10 +36,10 @@ jobs:
           ECR_REPOSITORY: ce6-capstone-group3-dev-ecr
           IMAGE_TAG: 1 #${{ github.sha }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-          echo "Input value is ${{ inputs.deployment_target }}"
+          # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          # echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          echo "Input value is ${{ github.event.inputs }}"
       
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
