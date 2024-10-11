@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "prod",
-            "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-capstone-group3-prod-ecr:1",
+            "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-capstone-group3-prod-ecr:latest",
             "cpu": 0,
             "portMappings": [
                 {

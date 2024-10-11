@@ -1,15 +1,15 @@
-name: ci
+name: Patch Superset Image CI/CD
 
 on:
   workflow_dispatch:
     inputs:
-      deployment_target:
-        description: 'Select deployment target'
+      denvironment:
+        description: 'Select deployment environment'
         required: true
         default: 'dev'
         options:
-          - 'dev'
-          - 'prod'
+          - dev
+          - prod
 
 jobs:
   build:
