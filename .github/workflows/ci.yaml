@@ -53,7 +53,7 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ce6-capstone-group3-svc
-          cluster: ce6-capstone-group3-${{ inputs.environment }}-ecs
+          service: ce6-capstone-group3-service
+          cluster: ce6-capstone-group3-${{ inputs.environment}}-ecs
           wait-for-service-stability: true
 
