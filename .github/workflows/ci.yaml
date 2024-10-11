@@ -36,17 +36,17 @@ jobs:
           ECR_REPOSITORY: ce6-capstone-group3-dev-ecr
           IMAGE_TAG: 1 #${{ github.sha }}
         run: |
-          # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          # echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
           echo "Input value is ${{ inputs.environment }}"
       
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ecs-${{ inputs.deployment_target }}-task-definition.json
-          container-name: ${{ inputs.deployment_target }}
+          task-definition: ecs-${{ inputs.environment }}-task-definition.json
+          container-name: ${{ inputs.environment }}
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
@@ -54,6 +54,6 @@ jobs:
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ce6-capstone-group3-svc
-          cluster: ce6-capstone-group3-${{ inputs.deployment_target }}-ecs
+          cluster: ce6-capstone-group3-${{ inputs.environment }}-ecs
           wait-for-service-stability: true
 
