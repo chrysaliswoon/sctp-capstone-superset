@@ -1,4 +1,4 @@
-FROM apache/superset:3.1.3
+FROM apache/superset:4.0.2
 
 USER root
 RUN apt-get update && apt-get install -y sudo vim \
