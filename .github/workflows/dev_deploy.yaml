@@ -1,4 +1,4 @@
-name: Patch Superset Image CI/CD
+name: Deploy Patch Superset Image to Dev
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: Patch Superset Image CI/CD
+name: Deploy Dev Superset Image Into Prod
 
 on:
   pull_request:
