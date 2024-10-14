@@ -1,6 +1,6 @@
 # Use the official Apache Superset image as the base
 # FROM apache/superset:latest
-FROM apache/superset:3.1.3
+FROM apache/superset:4.02
 
 # Install dependencies for Athena
 USER root
