@@ -28,7 +28,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/ce6-capstone-group3",
+                    "awslogs-group": "/ecs/ce6-capstone-group3-prod",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -39,7 +39,7 @@
             "systemControls": []
         }
     ],
-    "family": "ce6-capstone-group3",
+    "family": "ce6-capstone-group3-prod",
     "taskRoleArn": "arn:aws:iam::255945442255:role/kh-service-20240901065557343400000002",
     "executionRoleArn": "arn:aws:iam::255945442255:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
