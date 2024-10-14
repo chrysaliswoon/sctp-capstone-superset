@@ -7,7 +7,7 @@
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "dev",
+                    "name": "ce6-capstone-group3-dev", 
                     "containerPort": 8088,
                     "hostPort": 8088,
                     "protocol": "tcp",
