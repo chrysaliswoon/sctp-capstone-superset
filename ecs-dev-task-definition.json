@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/ce6-capstone-group3-service-dev:2",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/ce6-capstone-group3-service-dev:1",
     "containerDefinitions": [
         {
             "name": "ce6-group3-superset-dev",
@@ -29,7 +29,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/aws/ecs/ce6-capstone-group3-service-dev",
+                    "awslogs-group": "/aws/ecs/ce6-capstone-group3-service-dev/ce6-group3-superset-dev",
                     "awslogs-region": "ap-southeast-1",
                     "awslogs-stream-prefix": "ecs"
                 }
@@ -41,7 +41,7 @@
     "taskRoleArn": "arn:aws:iam::255945442255:role/ce6-capstone-group3-service-dev-20241014131845765900000004",
     "executionRoleArn": "arn:aws:iam::255945442255:role/ce6-capstone-group3-service-dev-20241014131845758400000001",
     "networkMode": "awsvpc",
-    "revision": 2,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -90,7 +90,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-10-14T13:52:16.964Z",
+    "registeredAt": "2024-10-14T13:18:47.063Z",
     "registeredBy": "arn:aws:iam::255945442255:user/khchung1",
     "tags": []
 }
