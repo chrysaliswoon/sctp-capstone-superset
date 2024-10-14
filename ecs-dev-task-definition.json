@@ -2,7 +2,7 @@
     "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/ce6-capstone-group3:9",
     "containerDefinitions": [
         {
-            "name": "dev",
+            "name": "ce6-group3-superset-dev",
             "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-capstone-group3-dev-ecr:latest",
             "cpu": 0,
             "portMappings": [
@@ -43,7 +43,6 @@
     "taskRoleArn": "arn:aws:iam::255945442255:role/kh-service-20240901065557343400000002",
     "executionRoleArn": "arn:aws:iam::255945442255:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 9,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
