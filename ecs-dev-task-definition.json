@@ -2,7 +2,7 @@
     "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/ce6-capstone-group3-service-dev:1",
     "containerDefinitions": [
         {
-            "name": "ce6-group3-superset-dev",
+            "name": "Dev",
             "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-capstone-group3-dev-ecr:1",
             "cpu": 0,
             "portMappings": [
