@@ -4,6 +4,7 @@ FROM apache/superset:3.1.3
 
 # Install dependencies for Athena
 USER root
+
 RUN apt-get update && apt-get install -y sudo vim \
     && pip install "PyAthena[SQLAlchemy]" \
     && pip install "pyathena[pandas]" \
