@@ -1,37 +1,35 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/ce6-capstone-group3:9",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/ce6-capstone-group3-service-dev:2",
     "containerDefinitions": [
         {
             "name": "ce6-group3-superset-dev",
-            "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-capstone-group3-dev-ecr:latest",
+            "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-capstone-group3-dev-ecr:1",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "ce6-group3-superset-dev",
                     "containerPort": 8088,
                     "hostPort": 8088,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
-            "entryPoint": [
-                "sh",
-                "-c"
-            ],
-            "command": [
-                "/usr/bin/run-server.sh && superset db upgrade && superset init"
-            ],
             "environment": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "linuxParameters": {
+                "initProcessEnabled": false
+            },
+            "startTimeout": 30,
+            "stopTimeout": 120,
+            "user": "0",
+            "privileged": false,
+            "readonlyRootFilesystem": true,
+            "interactive": false,
+            "pseudoTerminal": false,
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/ce6-capstone-group3-dev",
-                    "mode": "non-blocking",
-                    "awslogs-create-group": "true",
-                    "max-buffer-size": "25m",
+                    "awslogs-group": "/aws/ecs/ce6-capstone-group3-service-dev",
                     "awslogs-region": "ap-southeast-1",
                     "awslogs-stream-prefix": "ecs"
                 }
@@ -39,10 +37,11 @@
             "systemControls": []
         }
     ],
-    "family": "ce6-capstone-group3-dev",
-    "taskRoleArn": "arn:aws:iam::255945442255:role/kh-service-20240901065557343400000002",
-    "executionRoleArn": "arn:aws:iam::255945442255:role/ecsTaskExecutionRole",
+    "family": "ce6-capstone-group3-service-dev",
+    "taskRoleArn": "arn:aws:iam::255945442255:role/ce6-capstone-group3-service-dev-20241014131845765900000004",
+    "executionRoleArn": "arn:aws:iam::255945442255:role/ce6-capstone-group3-service-dev-20241014131845758400000001",
     "networkMode": "awsvpc",
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -59,10 +58,13 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
         },
         {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.container-ordering"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -72,9 +74,6 @@
         },
         {
             "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "placementConstraints": [],
@@ -86,12 +85,12 @@
         "FARGATE"
     ],
     "cpu": "1024",
-    "memory": "3072",
+    "memory": "2048",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-10-09T04:47:55.799Z",
+    "registeredAt": "2024-10-14T13:52:16.964Z",
     "registeredBy": "arn:aws:iam::255945442255:user/khchung1",
     "tags": []
 }
