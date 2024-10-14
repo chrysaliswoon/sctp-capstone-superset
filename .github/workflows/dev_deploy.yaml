@@ -47,7 +47,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ecs-${{ inputs.environment }}-task-definition.json
-          container-name: ${{ inputs.environment }}
+          container-name: ce6-group3-superset-${{ inputs.environment }}
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
