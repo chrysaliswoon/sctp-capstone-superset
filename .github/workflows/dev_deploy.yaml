@@ -46,7 +46,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ecs-${{ inputs.environment }}-task-definition.json
+          task-definition: ecs-dev-task-definition.json
           container-name: dev
           image: ${{ steps.build-image.outputs.image }}
 
@@ -55,6 +55,6 @@ jobs:
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ce6-capstone-group3-dev
-          cluster: ce6-capstone-group3-${{ inputs.environment}}-ecs
+          cluster: ce6-capstone-group3-dev-ecs
           wait-for-service-stability: true
 

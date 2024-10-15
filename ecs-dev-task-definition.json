@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/ce6-capstone-group3-dev:5",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/group3-superset-dev:1",
     "containerDefinitions": [
         {
-            "name": "dev",
+            "name": "superset-dev",
             "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-capstone-group3-dev-ecr:1",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "dev-8088-tcp",
+                    "name": "dev-port",
                     "containerPort": 8088,
                     "hostPort": 8088,
                     "protocol": "tcp",
@@ -23,7 +23,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/ce6-capstone-group3-dev",
+                    "awslogs-group": "/ecs/group3-superset-dev",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -35,11 +35,11 @@
             "systemControls": []
         }
     ],
-    "family": "ce6-capstone-group3-dev",
+    "family": "group3-superset-dev",
     "taskRoleArn": "arn:aws:iam::255945442255:role/kh-service-20240901065557343400000002",
     "executionRoleArn": "arn:aws:iam::255945442255:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 5,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -88,7 +88,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-10-14T16:12:38.981Z",
+    "registeredAt": "2024-10-15T01:59:38.492Z",
     "registeredBy": "arn:aws:iam::255945442255:user/khchung1",
     "tags": []
 }
