@@ -15,8 +15,6 @@ RUN apt-get update && apt-get install -y sudo vim \
 COPY superset_config.py /app/
 ENV SUPERSET_CONFIG_PATH /app/superset_config.py
 
-RUN mkdir -p /data/superset/
-
 # Switch back to the superset user
 USER superset
 
