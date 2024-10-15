@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/ce6-capstone-group3:9",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:255945442255:task-definition/group3-superset-prod:1",
     "containerDefinitions": [
         {
-            "name": "prod",
-            "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-capstone-group3-prod-ecr:latest",
+            "name": "superset-prod",
+            "image": "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/ce6-capstone-group3-prod-ecr:1",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "ce6-group3-superset",
+                    "name": "prod-port",
                     "containerPort": 8088,
                     "hostPort": 8088,
                     "protocol": "tcp",
@@ -15,35 +15,31 @@
                 }
             ],
             "essential": true,
-            "entryPoint": [
-                "sh",
-                "-c"
-            ],
-            "command": [
-                "/usr/bin/run-server.sh && superset db upgrade && superset init"
-            ],
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/ce6-capstone-group3-prod",
+                    "awslogs-group": "/ecs/group3-superset-prod",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
                     "awslogs-region": "ap-southeast-1",
                     "awslogs-stream-prefix": "ecs"
-                }
+                },
+                "secretOptions": []
             },
             "systemControls": []
         }
     ],
-    "family": "ce6-capstone-group3-prod",
+    "family": "group3-superset-prod",
     "taskRoleArn": "arn:aws:iam::255945442255:role/kh-service-20240901065557343400000002",
     "executionRoleArn": "arn:aws:iam::255945442255:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 9,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -92,7 +88,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-10-09T04:47:55.799Z",
+    "registeredAt": "2024-10-15T02:32:15.896Z",
     "registeredBy": "arn:aws:iam::255945442255:user/khchung1",
     "tags": []
 }
