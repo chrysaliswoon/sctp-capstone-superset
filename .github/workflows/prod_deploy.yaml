@@ -38,14 +38,14 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ecs-prod-task-definition.json
-          container-name: prod
+          container-name: superset-prod
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ce6-capstone-group3-service
+          service: ce6-group3-superset-prod
           cluster: ce6-capstone-group3-prod-ecs
           wait-for-service-stability: true
 
