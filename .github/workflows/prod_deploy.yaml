@@ -2,7 +2,7 @@ name: Deploy Dev Superset Image Into Prod
 
 on:
   pull_request:
-    branch : ["dev"]
+    branch : ["main"]
 
 jobs:
   build:
